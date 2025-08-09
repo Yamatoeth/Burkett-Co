@@ -1,0 +1,161 @@
+<!-- File: index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Burkett & Co — Accounting & Client Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-grid">
+      <div class="brand">
+        <img src="https://images.unsplash.com/photo-1532619685609-55a3a7a9e8b9?q=80&w=400&auto=format&fit=crop" alt="Burkett & Co" class="logo">
+        <div>
+          <h1>Burkett &amp; Co</h1>
+          <p class="tag">Accounting · Advisory · Client Services</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#clients">Clients</a>
+        <a href="#team">Team</a>
+        <a class="btn-outline" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h2>Modern accounting. Trusted advice.</h2>
+          <p>Secure client management and professional services tailored for growing businesses. Simple workflows, clear insights.</p>
+          <div class="hero-actions">
+            <button id="demoBtn" class="btn-primary">Request Demo</button>
+            <a href="#clients" class="btn-ghost">View Clients</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=900&auto=format&fit=crop" alt="Team meeting">
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="container services">
+      <h3 class="section-title">Our Services</h3>
+      <div class="cards">
+        <article class="card">
+          <h4>Accounting & Bookkeeping</h4>
+          <p>Accurate financial records, regular reconciliations and monthly reporting.</p>
+        </article>
+        <article class="card">
+          <h4>Tax & Compliance</h4>
+          <p>Corporate and personal tax planning, filing and compliance tailored to your needs.</p>
+        </article>
+        <article class="card">
+          <h4>Advisory & Growth</h4>
+          <p>Financial modelling, cashflow forecasting and strategic advice for scaling businesses.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="clients" class="container clients">
+      <div class="section-head">
+        <h3 class="section-title">Client Management</h3>
+        <div class="controls">
+          <input id="search" placeholder="Search clients or companies" />
+          <button id="addClientBtn" class="btn-outline">+ Add Client</button>
+        </div>
+      </div>
+
+      <div class="client-area">
+        <aside class="client-list">
+          <ul id="clientList"></ul>
+        </aside>
+        <section class="client-panel" id="clientPanel">
+          <div id="emptyState" class="empty">Select a client to see details</div>
+          <div id="clientDetails" class="details hidden"></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="team" class="container team">
+      <h3 class="section-title">Our Team</h3>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" alt="Partner">
+          <h4>Emma Burkett</h4>
+          <p>Managing Partner — Tax & Advisory</p>
+        </div>
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600&auto=format&fit=crop" alt="Manager">
+          <h4>Michael Lee</h4>
+          <p>Head of Accounting</p>
+        </div>
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=600&auto=format&fit=crop" alt="Consultant">
+          <h4>Aisha Khan</h4>
+          <p>Financial Advisor</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h3 class="section-title">Get in touch</h3>
+      <form id="contactForm" class="contact-form">
+        <div class="row">
+          <input name="name" placeholder="Full name" required />
+          <input name="company" placeholder="Company" />
+        </div>
+        <div class="row">
+          <input name="email" type="email" placeholder="Email" required />
+          <input name="phone" placeholder="Phone" />
+        </div>
+        <textarea name="message" placeholder="How can we help?" rows="4"></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Send Message</button>
+          <small class="muted">We take privacy & security seriously — your data is encrypted in transit.</small>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Burkett &amp; Co</strong>
+        <p>© <span id="year"></span> Burkett & Co — All rights reserved</p>
+      </div>
+      <nav>
+        <a href="#privacy">Privacy</a>
+        <a href="#security">Security</a>
+        <a href="#terms">Terms</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Modal (hidden) -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h4>Add new client</h4>
+      <form id="clientForm">
+        <input name="name" placeholder="Client name" required />
+        <input name="company" placeholder="Company" />
+        <input name="email" type="email" placeholder="Email" />
+        <input name="phone" placeholder="Phone" />
+        <div class="modal-actions">
+          <button type="submit" class="btn-primary">Save</button>
+          <button type="button" id="cancelModal" class="btn-outline">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
